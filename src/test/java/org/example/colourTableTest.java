@@ -7,6 +7,7 @@ import java.lang.reflect.Parameter;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class colourTableTest {
+
     @Test
     void testConstructorHasSingleIntegerParameter() {
         // Get all constructors of the class
@@ -31,4 +32,14 @@ public class colourTableTest {
         // Assert that we found exactly one constructor with a single int/Integer parameter
         assertTrue(found, "Expected a constructor with a single parameter of type int or Integer.");
     }
+
+    @Test
+    public void testConstructorWithPowerOfTwo() {
+        // Valid power of 2, should not throw an exception
+        assertDoesNotThrow(() -> new colourTable(4));
+        assertDoesNotThrow(() -> new colourTable(8));
+        assertDoesNotThrow(() -> new colourTable(16));
+    }
+
+
 }
