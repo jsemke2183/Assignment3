@@ -49,5 +49,13 @@ public class colourTableTest {
         assertThrows(IllegalArgumentException.class, () -> new colourTable(10));
     }
 
+    @Test
+    public void testConstructorWithZeroAndNegativeNumbers() {
+        // Zero and negative numbers, also not powers of 2
+        assertThrows(IllegalArgumentException.class, () -> new colourTable(0));
+        assertThrows(IllegalArgumentException.class, () -> new colourTable(-4));
+        assertThrows(IllegalArgumentException.class, () -> new colourTable(-8));
+    }
+
 
 }
