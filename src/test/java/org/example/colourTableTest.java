@@ -41,5 +41,13 @@ public class colourTableTest {
         assertDoesNotThrow(() -> new colourTable(16));
     }
 
+    @Test
+    public void testConstructorWithNonPowerOfTwo() {
+        // Not a power of 2, should throw IllegalArgumentException
+        assertThrows(IllegalArgumentException.class, () -> new colourTable(3));
+        assertThrows(IllegalArgumentException.class, () -> new colourTable(5));
+        assertThrows(IllegalArgumentException.class, () -> new colourTable(10));
+    }
+
 
 }
