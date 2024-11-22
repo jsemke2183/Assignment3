@@ -1,6 +1,8 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+
+import java.awt.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
 
@@ -55,6 +57,16 @@ public class colourTableTest {
         assertThrows(IllegalArgumentException.class, () -> new colourTable(0));
         assertThrows(IllegalArgumentException.class, () -> new colourTable(-4));
         assertThrows(IllegalArgumentException.class, () -> new colourTable(-8));
+    }
+
+    @Test
+    public void testAddMethodWithValidValues() {
+        colourTable table = new colourTable(2);
+        //table.add(0,0,0);
+        //shouldn't throw for valid RGB values
+        assertDoesNotThrow(() -> table.add(0, 0, 0));
+        //check to make sure color was added in right spot in the array
+        assertEquals(new Color(0,0,0), table.getPalette()[0]);
     }
 
 
