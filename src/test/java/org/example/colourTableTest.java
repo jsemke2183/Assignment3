@@ -64,9 +64,20 @@ public class colourTableTest {
         colourTable table = new colourTable(2);
         //table.add(0,0,0);
         //shouldn't throw for valid RGB values
-        assertDoesNotThrow(() -> table.add(0, 0, 0));
+        assertDoesNotThrow(() -> table.add(87, 96, 123));
         //check to make sure color was added in right spot in the array
+        assertEquals(new Color(87,96,123), table.getPalette()[0]);
+    }
+
+    @Test
+    public void testAddMethodWithEdgeCases() {
+        colourTable table = new colourTable(2);
+
+        assertDoesNotThrow(() -> table.add(0, 0, 0));
+        assertDoesNotThrow(() -> table.add(255, 255, 255));
+
         assertEquals(new Color(0,0,0), table.getPalette()[0]);
+        assertEquals(new Color(255,255,255), table.getPalette()[1]);
     }
 
 
