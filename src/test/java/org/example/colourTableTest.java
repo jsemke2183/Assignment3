@@ -111,7 +111,7 @@ public class colourTableTest {
     }
 
     @Test
-    public void testExceedingPaletteCapacityV2() {
+    public void testExceedingOtherPaletteCapacity() {
         colourTable table = new colourTable(4);
 
         table.add(5,87,145);
