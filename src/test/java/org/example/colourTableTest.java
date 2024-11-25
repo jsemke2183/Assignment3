@@ -80,5 +80,15 @@ public class colourTableTest {
         assertEquals(new Color(255,255,255), table.getPalette()[1]);
     }
 
+    @Test
+    public void testAddMethodWithInvalidLowRGBValues() {
+        colourTable table = new colourTable(2);
+
+        // Test values below 0 for r, g, and b
+        assertThrows(IllegalArgumentException.class, () -> table.add(-1, 0, 0));
+        assertThrows(IllegalArgumentException.class, () -> table.add(0, -10, 0));
+        assertThrows(IllegalArgumentException.class, () -> table.add(0, 0, -5));
+    }
+
 
 }
