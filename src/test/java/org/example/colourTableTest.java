@@ -90,5 +90,15 @@ public class colourTableTest {
         assertThrows(IllegalArgumentException.class, () -> table.add(0, 0, -5));
     }
 
+    @Test
+    public void testInvalidHighRGBValues() {
+        colourTable table = new colourTable(2);
+
+        // Test values above 255 for r, g, and b
+        assertThrows(IllegalArgumentException.class, () -> table.add(256, 0, 0));
+        assertThrows(IllegalArgumentException.class, () -> table.add(0, 300, 0));
+        assertThrows(IllegalArgumentException.class, () -> table.add(0, 0, 500));
+    }
+
 
 }
