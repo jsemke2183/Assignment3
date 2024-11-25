@@ -100,5 +100,15 @@ public class colourTableTest {
         assertThrows(IllegalArgumentException.class, () -> table.add(0, 0, 500));
     }
 
+    @Test
+    public void testExceedingPaletteCapacity() {
+        colourTable table = new colourTable(2);
+
+        table.add(5,87,145);
+        table.add(98,234,165);
+
+        assertThrows(IllegalStateException.class, () -> table.add(21,190,211));
+    }
+
 
 }
